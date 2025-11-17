@@ -16,8 +16,8 @@ Team members (Group 2):
 
 1.  Bayader Aljondeby
 
-2.  Dai Alharbi
+2.  Dhay Alharbi
 
-3. Ibrahim Altwalah
+3. Ibrahem Altwalah
 
 4.  Fahad Alghamdy
