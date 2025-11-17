@@ -11,13 +11,3 @@ Our travel planner makes trip planning simple and stress-free. It helps users or
 Streamlit for the website interface and deployment
 
 Notion for project planning and team task management
-
-Team members (Group 2):
-
-1.  Bayader Aljondeby
-
-2.  Dhay Alharbi
-
-3. Ibrahem Altwalah
-
-4.  Fahad Alghamdy
