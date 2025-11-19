@@ -23,8 +23,23 @@ def get_user_input():
             print("❌ Error: Please enter a valid integer.\n")
 
     #2- Ask for Trip types selection by numbers
-    valid_trip_types = ["Leisure", "Shopping", "Cultural", "Beach", "Adventure"] #depends on Fahad’s code
-
+    valid_trip_types = [
+        "culture",
+        "shopping",
+        "family",
+        "history",
+        "budget",
+        "luxury",
+        "technology",
+        "food",
+        "romantic",
+        "relax",
+        "nature",
+        "events",
+        "beach",
+        "sea",
+        "adventure"
+    ]
     print("\n🔹 Available Trip Types:")
     for i, t in enumerate(valid_trip_types, start=1):
         print(f"{i}. {t}")
