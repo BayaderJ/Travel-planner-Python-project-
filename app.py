@@ -24,21 +24,21 @@ def get_user_input():
 
     #2- Ask for Trip types selection by numbers
     valid_trip_types = [
-        "culture",
-        "shopping",
-        "family",
-        "history",
-        "budget",
-        "luxury",
-        "technology",
-        "food",
-        "romantic",
-        "relax",
-        "nature",
-        "events",
-        "beach",
-        "sea",
-        "adventure"
+        "Culture",
+        "Shopping",
+        "Family",
+        "History",
+        "Budget",
+        "Luxury",
+        "Technology",
+        "Food",
+        "Romantic",
+        "Relax",
+        "Nature",
+        "Events",
+        "Beach",
+        "Sea",
+        "Adventure"
     ]
     print("\n🔹 Available Trip Types:")
     for i, t in enumerate(valid_trip_types, start=1):
@@ -70,8 +70,4 @@ def get_user_input():
 
 
 budget, trip_types = get_user_input()
-
-print("\n✅ Inputs saved successfully!")
-print(f"Budget: {budget}")#test
-print(f"Trip Types Selected: {trip_types}") #test
-recommendations = recommendation_logic.getting_destination(budget, trip_types)#to test recommendation logic file
+recommendations = recommendation_logic.getting_destination(budget, trip_types)
