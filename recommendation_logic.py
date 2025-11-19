@@ -1,6 +1,6 @@
 import data
 import random
-
+#Defining a filtering function to find matching destination for the user preferences
 def getting_destination(budget, trip_types):
     #Creating 2 list to provide the user with global and local recommendations
     global_recommendations = []
