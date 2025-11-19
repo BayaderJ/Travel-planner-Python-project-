@@ -1,0 +1,60 @@
+This TravelRecommendation program recommends travel destinations based on user's budget and preferred trip types.
+
+ BEGIN TravelRecommendation
+
+     INPUT user_budget
+     INPUT user_selected_trip_types
+
+     INITIALIZE global_recommendations TO empty list
+     INITIALIZE local_recommendations TO empty list
+
+     FOR EACH destination, info IN global_destinations
+         SET avg_price TO info["average_budget_per_day"]
+         SET price_diff TO user_budget - avg_price
+         SET trip_type_list TO info["trip_type"]
+         IF price_diff >= 0 AND price_diff <= 100 AND EXISTS t IN trip_types SUCH THAT t ∈ trip_type_list THEN
+             APPEND {destination: info} TO global_recommendations
+         END IF
+     END FOR
+
+     FOR EACH destination, info IN local_destinations
+         SET avg_price TO info["average_budget_per_day"]
+         SET price_diff TO user_budget - avg_price
+         SET trip_type_list TO info["trip_type"]
+         IF price_diff >= 0 AND price_diff <= 100 AND EXISTS t IN trip_types SUCH THAT t ∈ trip_type_list THEN
+             APPEND {destination: info} TO local_recommendations
+         END IF
+     END FOR
+
+     INITIALIZE missing_types TO empty list
+     SET any_found TO FALSE
+
+     FOR EACH trip_type IN trip_types
+         SET global_filtered TO recommendations in global_recommendations WHERE trip_type ∈ recommendation's trip_type
+         SET local_filtered TO recommendations in local_recommendations WHERE trip_type ∈ recommendation's trip_type
+
+         IF global_filtered IS NOT EMPTY OR local_filtered IS NOT EMPTY THEN
+             SET any_found TO TRUE
+             DISPLAY "Recommendations for", trip_type, ":"
+
+             IF global_filtered IS NOT EMPTY AND local_filtered IS NOT EMPTY THEN
+                 CALL PrintRecommendations("Global Recommendations", global_filtered)
+                 CALL PrintRecommendations("Local Recommendations", local_filtered)
+             ELSE IF global_filtered IS NOT EMPTY THEN
+                 CALL PrintRecommendations("Global Recommendations", global_filtered)
+             ELSE IF local_filtered IS NOT EMPTY THEN
+                 CALL PrintRecommendations("Local Recommendations", local_filtered)
+             END IF
+         ELSE
+             APPEND trip_type TO missing_types
+         END IF
+
+     END FOR
+
+     IF missing_types IS NOT EMPTY THEN
+         DISPLAY "Sorry! No recommendation matches your preferences and budget for: "
+         DISPLAY missing_types AS COMMA-SEPARATED STRING
+         DISPLAY "Try adjusting your budget or choosing different trip types"
+     END IF
+
+ END TravelRecommendation
